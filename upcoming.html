@@ -7,15 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
 
   <title>PARAAG FILMS</title>
-
-  <!-- slider stylesheet -->
-  <!-- slider stylesheet -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -121,12 +118,54 @@
               Don't miss the compelling tale of courage, perseverance, and the unbreakable spirit of youth in the
               upcoming movie.
             </p>
-            <h6><b>Writer and Director: Arvind Yayawar</b></h6>
-            <span>Camera men: DK Raju</span><br>
-            <span>Music: Vardan Singh & Kiran Malik </span><br>
-            <span>Editor: Santosh mandal</span><br>
-            <span>Lyrics: Azeem shirazi and Kiran Malik </span><br>
-            <span>Location: Uttar Pradesh</span><br>
+            <h6>
+              <b>Writer and Director:</b>
+              <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Arvind Kumar Yayawar">
+                Arvind Kumar Yayawar
+              </span>
+            </h6>
+            <h6>
+              <b>Camera men:</b>
+              <span>DK Raju</span>
+            </h6>
+
+            <h6>
+              <span>
+                <b>Music:</b>
+                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Vardan Singh">
+                  Vardan Singh
+                </span> & Kiran Malik
+              </span>
+            </h6>
+
+            <h6>
+              <span>
+                <b>Cast:</b>
+                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Suraj Sonik">
+                  Suraj Sonik
+                </span>,
+                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Deepak Khatri">
+                  Deepak Khatri
+                </span>,
+                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Kajal">
+                  Kajal
+                </span> &
+                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Hemant Chaudhary">
+                  Hemant Chaudhary
+                </span>
+              </span>
+            </h6>
+
+            <h6>
+              <span><b>Editor:</b> Santosh Mandal</span>
+            </h6>
+            <h6>
+              <span><b>Lyrics:</b> Azeem Shirazi and Kiran Malik</span>
+            </h6>
+            <h6>
+              <span><b>Location:</b> Uttar Pradesh</span>
+            </h6>
+
             <!--
             <div>
               <a href="">
@@ -216,77 +255,25 @@
             </div>
           </div>
         </div>
-        
-        <!--
-        <div class="col-md-3">
-          <div class="info_info">
-            <h5>
-              Informations
-            </h5>
-            <p>
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            </p>
-          </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="info_insta">
-            <h5>
-              Instagram
-            </h5>
-            <div class="insta_container">
-              <div>
-                <a href="">
-                  <div class="insta-box b-1">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-                <a href="">
-                  <div class="insta-box b-2">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-              </div>
 
-              <div>
-                <a href="">
-                  <div class="insta-box b-3">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-                <a href="">
-                  <div class="insta-box b-4">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <div class="insta-box b-3">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-                <a href="">
-                  <div class="insta-box b-4">
-                    <img src="images/insta.png" alt="">
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      -->
 
       </div>
     </div>
   </section>
-  <!-- end info_section -->
 
 
-  <!-- footer section -->
-
-  <!-- footer section -->
+  <div id="peopleModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
+      <button id="closeModal"
+        class="absolute top-3 right-4 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
+      <div class="text-center">
+        <img id="modalImage" src="" alt="" class="w-40 h-40 object-cover rounded-full mx-auto mb-4 border">
+        <h2 id="modalName" class="text-2xl font-bold mb-2 text-gray-800"></h2>
+        <p id="modalBio" class="text-gray-700 whitespace-pre-line text-sm leading-relaxed text-justify"></p>
+      </div>
+    </div>
+  </div>
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -312,7 +299,101 @@
       }
     });
   </script>
-  <!-- end owl carousel script -->
+  <script>
+    const peopleData = {
+      "Arvind Kumar Yayawar": {
+        image: "images/arvind.png",
+        bio: `ARVIND KUMAR YAYAWAR is an Indian film director who has directed numerous films and worked in television, short films, and documentaries. Some of his notable works include:
+            - Film “Babuluwa ke pyar hogail” (Director)
+            - DV Film “Rajju Bhaiya Ki Salee” (Writer, Director, Actor)
+            - DV Film “Ye Kaisa Parwana” (Writer, Director, Actor)
+            - DV Film “Rajkumari” (Actor, Director)
+            - “Enemies within” worked as Actor and Director, Produced by Chris Reddey a Canadian film producer from Canada.
+            - 35mm Bhojpuri film “Sajna Thorahre Khatir” worked as Actor, writer and Director`
+      },
+      "Suraj Sonik": {
+        image: "images/suraj.png",
+        bio: "Suraj Sonik is an Indian film and theatre actor who is doing very well over social media. He has large number of followers on his social media handles like Instagram and Facebook. Suraj Sonik has worked in so many televisions and shared the screen space with legendary Amitabh Bachchan as well."
+      },
+      "Deepak Khatri": {
+        image: "images/deepak.png",
+        bio: "Deepak Khatri is an Indian film actor who is going to play Om Prakash in the film Ek Nai Shuruaat"
+      },
+      "Kajal": {
+        image: "images/kajal.png",
+        bio: "Kajal is an Indian film actress who is going to play Riya in the film Ek Nai Shuruaat"
+      },
+      "Hemant Chaudhary": {
+        image: "images/hemant.png",
+        bio: `HEMANT CHAUDHARY as Pradhan  
+      Hemant Choudhary is an Indian actor who appears in Hindi serials, films and web series.  
+      He is best known for his role of Raghunath Singh in Zee TV's *Jhansi Ki Rani*.  
+      He made his television debut in 2001 with Zee TV's *Gharana*, where he played Rahul Somani.  
+
+      He has also starred in shows such as:  
+      - *Siya Ke Ram*  
+      - *Veer Shivaji*  
+      - *Thapki Pyar Ki*  
+      - *Main Maike Chali Jaungi Tum Dekhte Rahiyo*  
+      - *Namah Lakshmi Narayan*  
+      - *Saath Saath Banayenge Ek Aashiyaan*  
+      - *Kumkum*  
+      - *Ek Ghar Banaunga*  
+
+      Hemant has also appeared in films and web series such as *Border*, *Azhar*, *Once Upon a Time in Mumbaai*, and *Aashram - Season 3*.`
+      },
+      "Vardan Singh": {
+        image: "images/vardan.png",
+        bio: `VARDAN SINGH  
+        Vardan Singh is an Indian playback singer and music director.  
+        He was born to a business family in Jaunpur, Uttar Pradesh, and raised in Lucknow — *Nawabon Ka Shahar*.  
+
+        He completed his schooling and graduation from the University of Lucknow.  
+        Vardan Singh is trained in classical music under the guidance of Late Pandit Ganesh Prasad Mishra,  
+        a well-known 'A' grade artist in Hindustani Classical Music.  
+
+        **His Works (Movies):**  
+        - *Rakta Charitra* starring Vivek Oberoi  
+        - *Rann* starring Amitabh Bachchan  
+        - *Ishq Junoon*  
+        - *Coat*  
+        - *Luv You Shankar*  
+        and many other popular films.`
+      },
+    };
+
+    // modal elements
+    const modal = document.getElementById("peopleModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalName = document.getElementById("modalName");
+    const modalBio = document.getElementById("modalBio");
+    const modalImage = document.getElementById("modalImage");
+
+    // event handler
+    document.querySelectorAll(".person").forEach(el => {
+      el.addEventListener("click", () => {
+        const name = el.dataset.name;
+        const data = peopleData[name];
+        if (!data) return;
+
+        modalName.textContent = name;
+        modalBio.innerHTML = data.bio
+          .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")   // make **bold**
+          .replace(/\*(.*?)\*/g, "<i>$1</i>")       // make *italic*
+          .replace(/\n/g, "<br>");                  // preserve line breaks
+        modalImage.src = data.image || "images/default.jpg";
+        modal.classList.remove("hidden");
+      });
+    });
+
+    // close modal
+    closeModal.addEventListener("click", () => modal.classList.add("hidden"));
+    modal.addEventListener("click", e => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+  </script>
+
+
 
 </body>
 
