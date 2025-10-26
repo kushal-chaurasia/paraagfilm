@@ -12,7 +12,7 @@
   <meta name="author" content="" />
 
   <title>PARAAG FILMS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -25,6 +25,124 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Person name links */
+    .person {
+      cursor: pointer;
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .person:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal styles */
+    #peopleModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+
+    #peopleModal.show {
+      opacity: 1;
+    }
+
+    #peopleModal .modal-content-custom {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      max-height: calc(100vh - 80px);
+      margin: auto;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding-top: 3rem;
+    }
+
+    #peopleModal.show .modal-content-custom {
+      transform: scale(1);
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      background: white;
+      border: none;
+      font-size: 2rem;
+      line-height: 1;
+      color: #666;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 10;
+    }
+
+    #closeModal:hover {
+      color: #000;
+    }
+
+    .modal-body-custom {
+      text-align: center;
+      padding: 1.5rem 2rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    #modalImage {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border: 3px solid #dee2e6;
+    }
+
+    #modalName {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    #modalBio {
+      color: #555;
+      white-space: pre-line;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    #modalBio a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    #modalBio a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body class="sub_page">
@@ -62,7 +180,6 @@
                   <a class="nav-link" href="contact.html">Contact us</a>
                 </li>
               </ul>
-
             </div>
           </div>
         </nav>
@@ -70,7 +187,6 @@
     </header>
     <!-- end header section -->
   </div>
-
 
   <!-- who section -->
   <br>
@@ -100,8 +216,6 @@
               who had envisioned a different future for them.
               Blaming their parents for pushing them into engineering against their true passions,
               the friends wrestle with feelings of resentment and regret.
-
-
             </p>
             <p>
               As they struggle to break free from the constraints imposed upon them,
@@ -120,19 +234,14 @@
             </p>
             <h6>
               <b>Writer and Director:</b>
-              <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Arvind Kumar Yayawar">
+              <span class="person" data-name="Arvind Kumar Yayawar">
                 Arvind Kumar Yayawar
               </span>
             </h6>
             <h6>
-              <b>Camera men:</b>
-              <span>DK Raju</span>
-            </h6>
-
-            <h6>
               <span>
                 <b>Music:</b>
-                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Vardan Singh">
+                <span class="person" data-name="Vardan Singh">
                   Vardan Singh
                 </span> & Kiran Malik
               </span>
@@ -141,40 +250,36 @@
             <h6>
               <span>
                 <b>Cast:</b>
-                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Suraj Sonik">
+                <span class="person" data-name="Suraj Sonik">
                   Suraj Sonik
                 </span>,
-                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Deepak Khatri">
+                <span class="person" data-name="Deepak Khatri">
                   Deepak Khatri
                 </span>,
-                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Kajal">
+                <span class="person" data-name="Kajal">
                   Kajal
                 </span> &
-                <span class="person text-blue-600 hover:underline cursor-pointer" data-name="Hemant Chaudhary">
+                <span class="person" data-name="Hemant Chaudhary">
                   Hemant Chaudhary
                 </span>
               </span>
             </h6>
 
             <h6>
-              <span><b>Editor:</b> Santosh Mandal</span>
+              <span><b>Editor:</b>
+                <span class="person" data-name="Santosh Mandal">Santosh Mandal</span>
+              </span>
             </h6>
             <h6>
-              <span><b>Lyrics:</b> Azeem Shirazi and Kiran Malik</span>
+              <span><b>Lyrics:</b>
+                <span class="person" data-name="Santosh Mandal">Azeem Shirazi</span> & Kiran Malik</span>
             </h6>
             <h6>
-              <span><b>Location:</b> Uttar Pradesh</span>
+              <span><b>Location:</b> Madhya Pradesh</span>
             </h6>
-
-            <!--
-            <div>
-              <a href="">
-                Read More
-              </a>
-            </div>
-          -->
           </div>
         </div>
+
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
@@ -203,22 +308,12 @@
               daale.
             </p>
             <h6><b>Writer and Music: Kiran Malik</b></h6>
-
-            <!--
-            <div>
-              <a href="">
-                Read More
-              </a>
-            </div>
-          -->
           </div>
         </div>
+
       </div>
     </div>
   </section>
-
-  <!-- end who section -->
-
 
   <!-- info section -->
   <section class="info_section ">
@@ -237,14 +332,6 @@
                 +91 8691827194
               </p>
             </div>
-            <!-- <div>
-              <div class="img-box">
-                <img src="images/telephone-white.png" width="12px" alt="">
-              </div>
-              <p>
-                +91 9967708175
-              </p>
-            </div> -->
             <div>
               <div class="img-box">
                 <img src="images/envelope-white.png" width="18px" alt="">
@@ -255,32 +342,27 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </section>
 
-
-  <div id="peopleModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
-      <button id="closeModal"
-        class="absolute top-3 right-4 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
-      <div class="text-center">
-        <img id="modalImage" src="" alt="" class="w-40 h-40 object-cover rounded-full mx-auto mb-4 border">
-        <h2 id="modalName" class="text-2xl font-bold mb-2 text-gray-800"></h2>
-        <p id="modalBio" class="text-gray-700 whitespace-pre-line text-sm leading-relaxed text-justify"></p>
+  <!-- modal -->
+  <div id="peopleModal" class="hidden" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content-custom">
+      <button id="closeModal" aria-label="Close">&times;</button>
+      <div class="modal-body-custom">
+        <img id="modalImage" src="images/default.jpg" alt="Person Image">
+        <h2 id="modalName"></h2>
+        <p id="modalBio"></p>
       </div>
     </div>
   </div>
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- owl carousel script 
-    -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
       loop: true,
@@ -290,15 +372,12 @@
       autoplay: true,
       autoplayHoverPause: true,
       responsive: {
-        0: {
-          items: 1
-        },
-        1000: {
-          items: 3
-        }
+        0: { items: 1 },
+        1000: { items: 3 }
       }
     });
   </script>
+
   <script>
     const peopleData = {
       "Arvind Kumar Yayawar": {
@@ -344,7 +423,7 @@
       },
       "Vardan Singh": {
         image: "images/vardan.png",
-        bio: `VARDAN SINGH  
+        bio: `
         Vardan Singh is an Indian playback singer and music director.  
         He was born to a business family in Jaunpur, Uttar Pradesh, and raised in Lucknow — *Nawabon Ka Shahar*.  
 
@@ -360,41 +439,89 @@
         - *Luv You Shankar*  
         and many other popular films.`
       },
+      "Santosh Mandal": {
+        image: "images/santosh.png",
+        bio: `
+    Santosh Mandal is an Indian film editor renowned for his work in Bollywood, particularly in collaboration with director Prakash Jha.  
+    He has been instrumental in shaping the narrative flow and emotional depth of several critically acclaimed films and series.  
+
+    Santosh completed his education in film editing and post-production and has collaborated with several renowned directors in the Indian film industry.  
+
+    **His Works (Movies):**  
+    - *Apaharan* (2005)  
+    - *Raajneeti* (2010)  
+    - *Aarakshan* (2011)  
+    - *Chakravyuh* (2012)  
+    - *Satyagraha* (2013)  
+    - *Jai Gangaajal* (2016)  
+    - *Chalk N Duster* (2016)  
+    - *Yaaram* (2019)  
+    - *Pareeksha: The Final Test* (2020)  
+    - *Babuji Ek Ticket Bambai* (2021)  
+    - *Aashram* (Season 1, 2020; Season 3, 2025)  
+    - *Godhra* (2024)  
+    and several other notable projects.`
+      },
+      "Azeem Shirazi": {
+        image: "images/azeem.png",
+        bio: `
+Azeem Shirazi is an Indian lyricist known for his work in Bollywood.  
+He gained recognition with the hit song *"Kabhi Jo Badal Barse"* from the film *Jackpot* (2013).  
+
+**His Works (Movies & Songs):**  
+- *Jackpot* (2013) - "Kabhi Jo Badal Barse"  
+- *1920 London* (2016) - "Rootha Kyon", "Tujhko Main Ankhon Mein"  
+- *War Chhod Na Yaar* (2013) - Title track  
+- *Ishq Junoon* (2016) - "Khudaya Re"  
+- *Commando 3* (2019) - "Irade Kar Buland"  
+- *Badhaai Do* (2022) - "Mange Manzooriyan"  
+- *Aashiqui Mein Teri* (2024) - "Mujhe Ishq Ke Par Laga De"`}
     };
 
-    // modal elements
+
     const modal = document.getElementById("peopleModal");
-    const closeModal = document.getElementById("closeModal");
+    const closeModalBtn = document.getElementById("closeModal");
     const modalName = document.getElementById("modalName");
     const modalBio = document.getElementById("modalBio");
     const modalImage = document.getElementById("modalImage");
 
-    // event handler
+    function openModal(data) {
+      modalName.textContent = data.name;
+      modalBio.innerHTML = data.bio
+        .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+        .replace(/\*(.*?)\*/g, "<i>$1</i>")
+        .replace(/\n/g, "<br>");
+      modalImage.src = data.image || "images/default.jpg";
+
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        modal.classList.add("show");
+      }, 10);
+    }
+
+    function closeModalFunc() {
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        modal.setAttribute("aria-hidden", "true");
+      }, 300);
+    }
+
     document.querySelectorAll(".person").forEach(el => {
       el.addEventListener("click", () => {
         const name = el.dataset.name;
         const data = peopleData[name];
         if (!data) return;
-
-        modalName.textContent = name;
-        modalBio.innerHTML = data.bio
-          .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")   // make **bold**
-          .replace(/\*(.*?)\*/g, "<i>$1</i>")       // make *italic*
-          .replace(/\n/g, "<br>");                  // preserve line breaks
-        modalImage.src = data.image || "images/default.jpg";
-        modal.classList.remove("hidden");
+        openModal({ name, ...data });
       });
     });
 
-    // close modal
-    closeModal.addEventListener("click", () => modal.classList.add("hidden"));
+    closeModalBtn.addEventListener("click", closeModalFunc);
     modal.addEventListener("click", e => {
-      if (e.target === modal) modal.classList.add("hidden");
+      if (e.target === modal) closeModalFunc();
     });
   </script>
-
-
-
 </body>
 
-</html> 
+</html>
